@@ -2,9 +2,12 @@
 
 const Header = () => {
   return (
-    <div className='text-red text-5xl' >
-      Header component
-    </div>
+  <>
+  <div className="text-5xl text-blue-500" >
+    Hello heads
+  </div>
+  
+  </>
   )
 }
 
