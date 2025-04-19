@@ -19,7 +19,7 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <div className="font-inter">
+    <div className="font-inter px-20">
       <RouterProvider router={router} />
     </div>
   );
