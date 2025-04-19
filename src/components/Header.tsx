@@ -3,8 +3,10 @@
 const Header = () => {
   return (
   <>
-  <div className="text-5xl text-blue-500" >
-    Hello heads
+
+  <div className="flex justify-between w-full" >
+   <div>HarmonyOrakpo</div>
+   <div>Home</div>
   </div>
   
   </>
