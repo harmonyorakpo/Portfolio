@@ -2,9 +2,11 @@
 
 const Hero = () => {
   return (
-    <div>
-      Hero works
-    </div>
+    <>
+      <div className="flex flex-col" >
+
+      </div>
+    </>
   )
 }
 

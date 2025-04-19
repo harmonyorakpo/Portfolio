@@ -1,16 +1,28 @@
-// import React from 'react'
-
 const Header = () => {
-  return (
-  <>
-
-  <div className="flex justify-between w-full" >
-   <div>HarmonyOrakpo</div>
-   <div>Home</div>
-  </div>
+    const links = [
+      { name: 'Home', href: '#home' },
+      { name: 'About', href: '#about' },
+      { name: 'Projects', href: '#projects' },
+      { name: 'Skills', href: '#skills' },
+      { name: 'Contact', href: '#contact' },
+    ];
   
-  </>
-  )
-}
-
-export default Header
+    return (
+      <div className="flex justify-between items-center w-full pt-6 pb-20">
+        <div className="text-xl font-semibold">Harmony Orakpo</div>
+        <ul className="flex space-x-6 pt-1">
+          {links.map((link) => (
+            <li key={link.name} className="relative group">
+              <a href={link.href} className="hover:text-primary">
+                {link.name}
+                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-bottom-right group-hover:origin-bottom-left"></span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+  
+  export default Header;
+  
