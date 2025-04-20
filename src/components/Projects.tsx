@@ -1,30 +1,23 @@
-import React from "react";
-import { NewsItem } from "../model/project.model";
+import { IProject } from "../model/project.model";
 
-const Projects: React.FC = () => {
-  const trendingNews: NewsItem[] = [
+const Projects = () => {
+  const projects: IProject = [
     {
-      newsType: "Devops",
-      content:
-        "Our team builds secure, automated smart contracts tailored to your needs, eliminating intermediaries and reducing costs.",
-      date: "7 October 2024",
+      title: "New Internet Banking",
+      number: "01",
+      description: "Angular | Bootstrap | RxJs | Chart.js",
+      link: "View Project",
     },
     {
-      newsType: "Design",
-      content:
-        "Our team performs comprehensive security audits to uncover vulnerabilities in your blockchain systems and smart contracts. We thoroughly examine code, evaluate potential risks, and deliver actionable insights to protect your project.",
-      date: "1 June 2024",
-    },
-    {
-      newsType: "Devops",
-      content:
-        "Our team builds secure, automated smart contracts tailored to your needs, eliminating intermediaries and reducing costs.",
-      date: "14 July 2024",
+      title: "Account Opening Web Engine",
+      number: "02",
+      description: "Angular | Tailwind | RxJs | Npmjs",
+      link: "View Project",
     },
   ];
 
   return (
-    <div className="flex flex-col mb-32">
+    <div className="flex flex-col mb-24">
       {/* Section Heading */}
       <div className="flex flex-col relative mb-12">
         <div className="text-3xl font-semibold">
@@ -33,31 +26,33 @@ const Projects: React.FC = () => {
         <div className="absolute top-full mt-1 left-0 w-10 h-1 rounded-xs bg-accent"></div>
       </div>
 
-      {/* News Items */}
-      {trendingNews.map((n, i) => (
-        <div
-          key={i}
-          className={`flex justify-between gap-4 rounded-md bg-white stroke-gray-300 stroke-0.78 fill-gray-200 shadow-custom mb-8 cursor-pointer ${
-            i % 2 === 0 ? "flex-row" : "flex-row-reverse"
-          }`}
-        >
-          {/* Placeholder for Image/Visual Section */}
-          <div
-            className={`bg-pink-900 w-full overflow-hidden ${
-              i % 2 !== 0 ? "rounded-r-md" : "rounded-l-md"
-            }`}
-          ></div>
-
-          {/* Content */}
-          <div className="flex flex-col p-10 w-full max-w-xl">
-            <span className="text-xs text-primary-muted mb-4 text-black">
-              {n.newsType.toUpperCase()}
+      {/* new section  */}
+      <div>
+        <hr className="border-gray-800" />
+        <div className="flex flex-row justify-between cursor-pointer hover:bg-gray-800 py-8 rounded-md transition duration-300 ease-in-out">
+          {/* first div  */}
+          <div className="flex flex-row items-center  w-full">
+            <span className="pr-5">
+              <hr className="border-gray-700 w-24" />
             </span>
-            <span className="text-base leading-7 text-black">{n.content}</span>
-            <span className="text-primary-muted text-xs mt-2 text-black">{n.date}</span>
+            <span className="pr-5 font-thin">01</span>
+            <div className="flex flex-col">
+              <span className="font-bold text-xl mb-2">
+                New Internet Banking
+              </span>
+              <span className="text-sm">
+                Angular | Bootstrap | RxJs | Chart.js{" "}
+              </span>
+            </div>
+          </div>
+
+          {/* second div  */}
+          <div className="w-full flex justify-end items-center text-sm font-bold hover:cursor-pointer">
+            View Project
           </div>
         </div>
-      ))}
+        <hr className="border-gray-800" />
+      </div>
     </div>
   );
 };

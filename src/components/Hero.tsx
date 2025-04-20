@@ -15,7 +15,11 @@ const Hero = () => {
         </div>
 
         <div className="mt-8 flex gap-4">
-          <button className="bg-primary text-white px-6 py-2 rounded-sm font-medium">
+          <button
+            // href="/assets/cv/Harmony_Orakpoyovwuru_cv.pdf.pdf"
+            // download
+            className="bg-primary text-white px-6 py-2 rounded-sm font-medium"
+          >
             My Resume
           </button>
           <button className="border border-primary px-6 py-2 rounded-sm font-medium">
@@ -26,5 +30,6 @@ const Hero = () => {
     </>
   );
 };
+
 
 export default Hero;
