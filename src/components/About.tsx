@@ -9,7 +9,7 @@ function About() {
           <div className="text-3xl font-semibold">
             <span>About me</span>
           </div>
-          <div className="absolute top-full mt-1 left-0 w-10 h-1 rounded-xs bg-accent"></div>
+          <div className="absolute top-full mt-1 left-0 w-10 h-1 rounded-xs bg-primary"></div>
         </div>
 
         <div className="leading-7" >
