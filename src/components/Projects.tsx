@@ -3,47 +3,48 @@ import { IProject } from "../model/project.model";
 const Projects = () => {
   const projects: IProject[] = [
     {
-      title: "New Internet Banking",
+      title: "My Portfolio",
       number: "01",
+      description: "React | Typescript | Tailwind",
+      link: "View Project",
+    },
+    {
+      title: "New Internet Banking",
+      number: "02",
       description: "Angular 19 | Bootstrap | RxJs | Chart.js | Npmjs",
       link: "View Project",
     },
     {
       title: "Account Opening Web Engine",
-      number: "02",
-      description: "Angular 14 | Tailwind | RxJs | Npmjs",
-      link: "View Project",
-    },
-    {
-      title: "API Management Portal",
       number: "03",
       description: "Angular 14 | Tailwind | RxJs | Npmjs",
       link: "View Project",
     },
     {
-      title: "Propertly",
+      title: "API Management Portal",
       number: "04",
+      description: "Angular 14 | Tailwind | RxJs | Npmjs",
+      link: "View Project",
+    },
+    {
+      title: "Propertly",
+      number: "05",
       description: "Angular 19 | Tailwind | RxJs | Npmjs | Signals",
       link: "View Project",
     },
     {
       title: "Nurse Ready Admin Portal",
-      number: "05",
+      number: "06",
       description: "Angular 14 | Primefaces | RxJs ",
       link: "View Project",
     },
     {
       title: "Touchstone Exam Portal",
-      number: "06",
+      number: "07",
       description: "Angular 19 | Primefaces | RxJs | NgXS | Signals",
       link: "View Project",
     },
-    {
-      title: "My Portfolio",
-      number: "07",
-      description: "React | Typescript | Tailwind",
-      link: "View Project",
-    },
+    
   ];
 
   return (
