@@ -22,6 +22,10 @@ module.exports = {
           DEFAULT: "#ff715b",
           dark: "#b34f40",
         },
+        accent: {
+          grey: "#d3d3d3",
+          DEFAULT: "#20c997",
+        },
       },
     },
   },

@@ -8,8 +8,8 @@ const Header = () => {
     ];
   
     return (
-      <div className="flex justify-between items-center w-full pt-6 pb-20">
-        <div className="text-xl font-semibold">Harmony Orakpo</div>
+      <div className="flex justify-between items-center w-full pt-6">
+        <div className="text-xl font-semibold">HO</div>
         <ul className="flex space-x-6 pt-1">
           {links.map((link) => (
             <li key={link.name} className="relative group">
