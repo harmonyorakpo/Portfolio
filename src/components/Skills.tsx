@@ -45,37 +45,19 @@ const Skills: React.FC<ISkillCategory[]> = () => {
     <>
       <SectionHeader title="My skills" />
 
-      <div
-        className="skills-grid"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "30px",
-        }}
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {skillsData.map((category, index) => (
           <div key={index} className="skill-category">
-            <h2
-              style={{
-                fontSize: "18px",
-                fontWeight: "bold",
-                marginBottom: "20px",
-              }}
-            >
+            <h2 className="text-lg font-bold mb-5">
               {category.title}
             </h2>
-            <ul style={{ listStyleType: "none", padding: 0 }}>
+            <ul className="list-none p-0">
               {category.skills.map((skill, skillIndex) => (
                 <li
                   key={skillIndex}
-                  style={{
-                    marginBottom: "10px",
-                    color: "#aaaaaa",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
+                  className="mb-2 text-gray-400 flex items-center"
                 >
-                  <span style={{ marginRight: "10px" }}>•</span>
+                  <span className="mr-2">•</span>
                   {skill.name} {skill.emoji && <span>{skill.emoji}</span>}
                 </li>
               ))}
