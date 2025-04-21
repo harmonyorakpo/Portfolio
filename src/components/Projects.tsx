@@ -10,29 +10,30 @@ const Projects = () => {
       link: "View Project",
     },
     {
-      title: "New Internet Banking",
+      title: "Store Paddy",
       number: "02",
+      description: "React | Typescript | Tailwind | Redux",
+      link: "View Project",
+    },
+    {
+      title: "New Internet Banking",
+      number: "03",
       description: "Angular 19 | Bootstrap | RxJs | Chart.js | Npmjs",
       link: "View Project",
     },
     {
       title: "Account Opening Web Engine",
-      number: "03",
-      description: "Angular 14 | Tailwind | RxJs | Npmjs",
-      link: "View Project",
-    },
-    {
-      title: "API Management Portal",
       number: "04",
       description: "Angular 14 | Tailwind | RxJs | Npmjs",
       link: "View Project",
     },
     {
-      title: "Propertly",
+      title: "API Management Portal",
       number: "05",
-      description: "Angular 19 | Tailwind | RxJs | Npmjs | Signals",
+      description: "Angular 14 | Tailwind | RxJs | Npmjs",
       link: "View Project",
     },
+  
     {
       title: "Nurse Ready Admin Portal",
       number: "06",

@@ -5,6 +5,19 @@ import SectionHeader from "./SectionHeader";
 
 const skillsData: ISkillCategory[] = [
   {
+    title: "Libraries/ Others",
+    skills: [
+      { name: "RxJs" },
+      { name: "NGXS" },
+      { name: "Signals" },
+      { name: "Angular Material" },
+      { name: "Cypress" },
+      { name: "Redux" },
+      { name: "Tailwind CSS" },
+      { name: "Figma" },
+    ],
+  },
+  {
     title: "Languages",
     skills: [
       { name: "HTML" },
@@ -12,26 +25,19 @@ const skillsData: ISkillCategory[] = [
       { name: "SASS/SCSS" },
       { name: "ES6+ Javascript" },
       { name: "Typescript" },
+      { name: "MSSQL" },
     ],
   },
   {
-    title: "Frameworks/ Libraries/ Others",
+    title: "Frameworks",
     skills: [
       { name: "React.js" },
       { name: "Angular 2+" },
       { name: "Angular 19" },
-      { name: "RxJs" },
-      { name: "NGXS" },
-      { name: "Signals" },
-      { name: "Angular Material" },
-      { name: "Figma" },
-      { name: "Cypress" },
       { name: "PrimeFaces" },
-      { name: "Redux" },
-      { name: "Tailwind CSS" },
-      { name: "MSSQL" },
     ],
   },
+
 ];
 
 const Skills: React.FC<ISkillCategory[]> = () => {
