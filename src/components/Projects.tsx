@@ -1,4 +1,5 @@
 import { IProject } from "../model/project.model";
+import SectionHeader from "./SectionHeader";
 
 const Projects = () => {
   const projects: IProject[] = [
@@ -44,18 +45,11 @@ const Projects = () => {
       description: "Angular 19 | Primefaces | RxJs | NgXS | Signals",
       link: "View Project",
     },
-    
   ];
 
   return (
     <div className="flex flex-col mb-24">
-      {/* Section Heading */}
-      <div className="flex flex-col relative mb-12">
-        <div className="text-3xl font-semibold">
-          <span>Projects</span>
-        </div>
-        <div className="absolute top-full mt-1 left-0 w-10 h-1 rounded-xs bg-primary"></div>
-      </div>
+      <SectionHeader title="Projects" />
 
       {/* Project List */}
       {projects.map((project, index) => (
@@ -69,12 +63,8 @@ const Projects = () => {
               </span>
               <span className="pr-5 font-thin">{project.number}</span>
               <div className="flex flex-col">
-                <span className="font-bold text-xl mb-2">
-                  {project.title}
-                </span>
-                <span className="text-sm">
-                  {project.description}
-                </span>
+                <span className="font-bold text-xl mb-2">{project.title}</span>
+                <span className="text-sm">{project.description}</span>
               </div>
             </div>
 
