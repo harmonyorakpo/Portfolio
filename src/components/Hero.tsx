@@ -22,11 +22,11 @@ const Hero = () => {
 
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = `/cv/Harmony_Orakpoyovwuru_cv.pdf`; // Ensure correct path
+    link.href = `/cv/Harmony_Orakpoyovwuru_cv.pdf`; 
     link.download = 'Harmony_Orakpoyovwuru_CV.pdf';
-    document.body.appendChild(link); // Append to the body
+    document.body.appendChild(link); 
     link.click();
-    document.body.removeChild(link); // Clean up
+    document.body.removeChild(link); 
   };
 
   useEffect(() => {
