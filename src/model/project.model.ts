@@ -10,3 +10,13 @@ export interface NewsItem {
     link: string;
     number: string;
   }
+
+ export interface ISkill {
+    name: string;
+    emoji?: string; // Optional emoji for special items
+  }
+  
+  export interface ISkillCategory {
+    title: string;
+    skills: ISkill[];
+  }

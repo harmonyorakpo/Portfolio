@@ -51,12 +51,10 @@ const Projects = () => {
     <div className="flex flex-col mb-24">
       <SectionHeader title="Projects" />
 
-      {/* Project List */}
       {projects.map((project, index) => (
         <div key={index}>
           <hr className="border-gray-800" />
           <div className="flex flex-row justify-between cursor-pointer hover:bg-gray-800 py-8 rounded-md transition duration-300 ease-in-out">
-            {/* Left Section */}
             <div className="flex flex-row items-center w-full">
               <span className="pr-5">
                 <hr className="border-gray-700 w-24" />
@@ -68,7 +66,6 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Right Section */}
             <div className="w-full flex justify-end items-center text-sm font-semibold pr-5 hover:text-primary">
               {project.link}
             </div>
