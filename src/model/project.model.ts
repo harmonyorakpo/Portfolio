@@ -8,7 +8,12 @@ export interface NewsItem {
     title: string;
     description: string;
     link: string;
-    number: string;
+    id: string;
+    about?: string;
+    roles?: string[]; 
+    responsibility?: string; 
+    technicalStack?: string[];
+    image?: string;
   }
 
  export interface ISkill {

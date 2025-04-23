@@ -32,15 +32,14 @@ const skillsData: ISkillCategory[] = [
     title: "Frameworks",
     skills: [
       { name: "React.js" },
-      { name: "Angular 2+" },
-      { name: "Angular 19" },
+      { name: "Angular" },
       { name: "PrimeFaces" },
     ],
   },
 
 ];
 
-const Skills: React.FC<ISkillCategory[]> = () => {
+const Skills: React.FC = () => {
   return (
     <>
       <SectionHeader title="My skills" />
