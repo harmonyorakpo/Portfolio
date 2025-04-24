@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import BackButton from "../components/BackButton";
 
 const ProjectDetails = () => {
   // const { id } = useParams();
@@ -17,24 +18,48 @@ const ProjectDetails = () => {
 
   return (
     <div className="p-10">
+
+
+      <BackButton className="mb-6" />
+
       <h1 className="text-3xl font-bold mb-16">{project.title}</h1>
       <span className="flex items-center justify-center mb-12">
         <img src={project.image} alt={project.title} className="mb-4 w-4/6" />
       </span>
 
-<div className="flex flex-col" >
+      <div className="flex flex-col mb-10">
+        <span className="text-xl font-semibold mb-3">ABOUT THIS PROJECT</span>
+        <span>{project.about}</span>
+      </div>
 
-    <span className="text-3xl font-semibold mb-6" >ABOUT THIS PROJECT</span>
-    <span>{project.about}</span>
-</div>
+      <div className="flex flex-col mb-10">
+        <span className="text-xl font-semibold mb-3">ROLES IN PROJECT</span>
+        <ul className="list-disc list-inside text-sm space-y-1">
+          {project.roles.map((role, index) => (
+            <li key={index}>{role}</li>
+          ))}
+        </ul>
+      </div>
 
-      <p className="text-lg text-gray-300 mb-6">{project.description}</p>
-      {/* <a
-        href="#"
-        className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500 transition"
-      >
-        {project.link}
-      </a> */}
+      <div className="flex flex-col mb-10">
+        <span className="text-xl font-semibold mb-3">MY REPONSIBILITIES AND FEATURES IMPLEMENTED</span>
+        <ul className="list-disc list-inside text-sm space-y-1">
+          {project.responsibilities.map((responsibility, index) => (
+            <li key={index}>{responsibility}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="flex flex-col mb-10">
+        <span className="text-xl font-semibold mb-3">TECHNICAL SHEET</span>
+        <ul className="list-disc list-inside text-sm space-y-1">
+          {project.technicalStack.map((techStack, index) => (
+            <li key={index}>{techStack}</li>
+          ))}
+        </ul>
+      </div>
+
+
     </div>
   );
 };

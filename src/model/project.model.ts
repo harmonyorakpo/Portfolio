@@ -11,7 +11,7 @@ export interface NewsItem {
     id: string;
     about?: string;
     roles?: string[]; 
-    responsibility?: string; 
+    responsibilities?: string[]; 
     technicalStack?: string[];
     image?: string;
   }
