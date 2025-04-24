@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Contact from "../components/Contact";
+// import Contact from "../components/Contact";
 
 const MainLayout = () => {
   return (
@@ -11,7 +11,7 @@ const MainLayout = () => {
         <Outlet />
       </div>
       <Footer />
-      <Contact />
+      {/* <Contact  /> */}
     </>
   );
 };

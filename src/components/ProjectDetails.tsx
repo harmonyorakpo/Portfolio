@@ -1,16 +1,14 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation,  } from "react-router-dom";
 import { IProject } from "../model/project.model";
 
 // const projectData: IProject[] = [
 // ];
 
 const ProjectDetails = () => {
-  const { id } = useParams();
+  // const { id } = useParams();
   const location = useLocation();
   const project = location.state?.project as IProject | undefined;
 
-  console.log("Retrieved Project:", project);
-  console.log("URL Param ID:", id);
 
   if (!project) {
     return <div className="text-red-500">Project not found!</div>;
