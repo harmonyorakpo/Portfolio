@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { IProject } from "../model/project.model";
 import SectionHeader from "./SectionHeader";
 import { Link } from "react-router-dom";
@@ -123,7 +124,7 @@ const Projects = () => {
       description: "Angular 14 | Tailwind | RxJs | Npmjs",
       link: "View Project",
       about:
-        "A secure and scalable web platform developed for onboarding companies integrating with the bank’s internal APIs. The application provides key features like secure API key generation, session and profile management, and encrypted real-time operations with a strong emphasis on security and usability.",
+        "A secure and scalable web platform developed for onboarding companies integrating with the bank's internal APIs. The application provides key features like secure API key generation, session and profile management, and encrypted real-time operations with a strong emphasis on security and usability.",
       roles: ["Frontend Engineer"],
       responsibilities: [
         "Developed the frontend architecture using Angular 14 and Angular Material for a clean, scalable design.",
@@ -148,7 +149,6 @@ const Projects = () => {
       ],
       image: "/images/API_Mgt_Portal.png",
     },
-
     {
       title: "Nurse Ready Admin Portal",
       id: "06",
@@ -192,7 +192,7 @@ const Projects = () => {
         "Built dynamic dashboards and performance tracking tools to provide real-time feedback and analytics to users.",
         "Collaborated with educators and stakeholders to translate curriculum requirements into functional UI components.",
         "Ensured mobile responsiveness and accessibility for users across multiple devices.",
-        "Optimized the platform’s performance to handle high user concurrency during exam simulations and timed assessments.",
+        "Optimized the platform's performance to handle high user concurrency during exam simulations and timed assessments.",
       ],
       technicalStack: [
         "Angular 19",
@@ -209,41 +209,73 @@ const Projects = () => {
     },
   ];
 
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { ease: "easeOut", duration: 0.6 } },
+  };
+
   return (
-    <div className="flex flex-col mb-24">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="flex flex-col mb-24"
+    >
       <SectionHeader title="Projects" />
 
-      {projects.map((project, index) => (
-        <div key={index}>
-          <hr className="border-gray-900" />
-          <Link
-            to={`/projects/${project.id}`}
-            state={{ project }}
-            className="w-full block hover:bg-gray-900 rounded-md transition duration-300 ease-in-out"
-          >
-            <div className="flex flex-row justify-between cursor-pointer py-8">
-              <div className="flex flex-row items-center w-full">
-                <span className="pr-5">
-                  <hr className="border-gray-800 w-24" />
-                </span>
-                <span className="pr-5 font-thin">{project.id}</span>
-                <div className="flex flex-col">
-                  <span className="font-bold text-xl mb-2">
-                    {project.title}
-                  </span>
-                  <span className="text-sm">{project.description}</span>
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="flex flex-col"
+      >
+        {/* First divider before any projects */}
+        <hr className="border-gray-900" />
+        
+        {projects.map((project, index) => (
+          <motion.div key={index} variants={item} className="flex flex-col">
+            <Link
+              to={`/projects/${project.id}`}
+              state={{ project }}
+              className="w-full block hover:bg-gray-900 rounded-md transition duration-300 ease-in-out"
+            >
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                className="flex flex-row justify-between cursor-pointer py-8 px-2"
+              >
+                <div className="flex flex-row items-center w-full">
+                  <span className="pr-5 font-thin">{project.id}</span>
+                  <div className="flex flex-col">
+                    <span className="font-bold text-xl mb-2 text-white">
+                      {project.title}
+                    </span>
+                    <span className="text-sm text-gray-300">{project.description}</span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="w-full flex justify-end items-center text-sm font-semibold pr-5 hover:text-primary">
-                {project.link}
-              </div>
-            </div>
-          </Link>
-          <hr className="border-gray-900" />
-        </div>
-      ))}
-    </div>
+                <div className="w-full flex justify-end items-center text-sm font-semibold pr-5 hover:text-primary text-gray-400">
+                  {project.link}
+                </div>
+              </motion.div>
+            </Link>
+            
+            {/* Single divider after each project */}
+            <hr className="border-gray-900" />
+          </motion.div>
+        ))}
+      </motion.div>
+    </motion.div>
   );
 };
 
