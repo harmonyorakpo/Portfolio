@@ -264,7 +264,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-start md:justify-end text-sm font-semibold text-gray-400 hover:text-primary w-full md:w-auto">
+                <div className="flex items-center justify-start md:justify-end text-sm font-semibold text-gray-400 hover:text-primary w-auto md:w-full">
                   {project.link}
                 </div>
               </motion.div>
