@@ -1,28 +1,63 @@
+import { useState } from "react";
+
 const Header = () => {
-    const links = [
-      { name: 'Home', href: '#home' },
-      { name: 'About', href: '#about' },
-      { name: 'Projects', href: '#projects' },
-      { name: 'Skills', href: '#skills' },
-      { name: 'Contact', href: '#contact' },
-    ];
-  
-    return (
-      <div className="flex justify-between items-center w-full pt-6">
-        <div className="text-xl font-semibold">HO</div>
-        <ul className="flex space-x-6">
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const links = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
+  return (
+    <div className="flex justify-between items-center w-full pt-6 px-4">
+      {/* Logo */}
+      <div className="text-xl font-semibold">HO</div>
+
+      {/* Desktop Navigation Links */}
+      <ul className="hidden lg:flex space-x-6">
+        {links.map((link) => (
+          <li key={link.name} className="relative group">
+            <a href={link.href} className="hover:text-primary">
+              {link.name}
+              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-bottom-right group-hover:origin-bottom-left"></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      {/* Hamburger Menu for Mobile */}
+      <div className="lg:hidden flex items-center">
+        <button 
+          className="text-2xl"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          ☰
+        </button>
+      </div>
+
+      {/* Mobile Navigation Links */}
+      <div 
+        className={`lg:hidden fixed inset-0 bg-gray-800 z-50 transition-transform ${isMenuOpen ? "transform translate-x-0" : "transform translate-x-full"}`}
+        onClick={() => setIsMenuOpen(false)}
+      >
+        <div className="flex justify-end p-4">
+          <button className="text-2xl text-white" onClick={() => setIsMenuOpen(false)}>×</button>
+        </div>
+        <ul className="flex flex-col items-center space-y-6 mt-24 text-white">
           {links.map((link) => (
-            <li key={link.name} className="relative group">
-              <a href={link.href} className="hover:text-primary">
+            <li key={link.name}>
+              <a href={link.href} className="text-2xl" onClick={() => setIsMenuOpen(false)}>
                 {link.name}
-                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-bottom-right group-hover:origin-bottom-left"></span>
               </a>
             </li>
           ))}
         </ul>
       </div>
-    );
-  };
-  
-  export default Header;
-  
+    </div>
+  );
+};
+
+export default Header;
