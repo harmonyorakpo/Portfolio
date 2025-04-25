@@ -23,7 +23,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-2xl sm:text-3xl md:text-5xl text-primary font-medium inline-block"
         >
-          Harmony Orakpo
+          Harmony Orakpoyovwuru
         </motion.span>
       </motion.div>
 
