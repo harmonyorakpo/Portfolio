@@ -19,6 +19,30 @@ const ScrollUpButton = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Add the CSS animation to the document head
+  useEffect(() => {
+    // Create a style element
+    const styleEl = document.createElement('style');
+    // Define the keyframes animation
+    styleEl.innerHTML = `
+      @keyframes smoothBounce {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+    `;
+    // Append to the head of the document
+    document.head.appendChild(styleEl);
+
+    // Clean up
+    return () => {
+      document.head.removeChild(styleEl);
+    };
+  }, []);
+
   // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({
@@ -29,13 +53,17 @@ const ScrollUpButton = () => {
 
   return (
     <button
-    onClick={scrollToTop}
-    className={`fixed bottom-6 right-6 w-12 h-12 rounded-full border-2 border-gray-50 border-opacity-15 flex items-center justify-center shadow-lg ${isVisible ? "block" : "hidden"} animate-bounce`}
-    aria-label="Scroll to top"
-  >
-    ↑
-  </button>
-  
+      onClick={scrollToTop}
+      className={`fixed bottom-6 right-6 w-12 h-12 rounded-full border-2 border-gray-50 border-opacity-15 flex items-center justify-center shadow-lg transition-opacity duration-300 ${
+        isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+      } hover:bg-gray-100 hover:bg-opacity-10`}
+      style={{
+        animation: isVisible ? "smoothBounce 2s infinite ease-in-out" : "none"
+      }}
+      aria-label="Scroll to top"
+    >
+      <span className="text-xl">↑</span>
+    </button>
   );
 };
 
