@@ -1,4 +1,3 @@
-// import React from 'react';
 import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 
@@ -9,7 +8,7 @@ function About() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="flex flex-col mb-24"
+      className="mb-24 px-4 sm:px-6 md:px-12 lg:px-24 max-w-screen-xl mx-auto"
     >
       <SectionHeader title="About Me" />
 
@@ -17,7 +16,7 @@ function About() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.8 }}
-        className="leading-7"
+        className="leading-relaxed text-base sm:text-lg"
       >
         I'm Harmony, a Frontend Developer with 3+ years of experience building
         scalable, user-focused web applications. Before diving into

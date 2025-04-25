@@ -38,7 +38,6 @@ const skillsData: ISkillCategory[] = [
 ];
 
 const Skills: React.FC = () => {
-  // Animation variants for container
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -49,7 +48,6 @@ const Skills: React.FC = () => {
     },
   };
 
-  // Animation variants for each category
   const categoryVariants = {
     hidden: { opacity: 0, y: 30 },
     show: { 
@@ -62,7 +60,6 @@ const Skills: React.FC = () => {
     },
   };
 
-  // Animation variants for each skill item
   const skillVariants = {
     hidden: { opacity: 0, x: -10 },
     show: { 
@@ -81,6 +78,7 @@ const Skills: React.FC = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
+      className="px-4 sm:px-6 md:px-8 lg:px-16"
     >
       <SectionHeader title="My skills" />
 
@@ -98,7 +96,7 @@ const Skills: React.FC = () => {
             variants={categoryVariants}
           >
             <motion.h2 
-              className="text-lg font-bold mb-5"
+              className="text-lg md:text-xl font-bold mb-5 text-white"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -114,7 +112,7 @@ const Skills: React.FC = () => {
               {category.skills.map((skill, skillIndex) => (
                 <motion.li
                   key={skillIndex}
-                  className="mb-2 text-gray-400 flex items-center"
+                  className="mb-2 text-gray-400 text-sm sm:text-base flex items-center"
                   variants={skillVariants}
                   transition={{ delay: skillIndex * 0.05 }}
                   whileHover={{ 
@@ -123,7 +121,7 @@ const Skills: React.FC = () => {
                     transition: { duration: 0.2 } 
                   }}
                 >
-                  <span className="mr-2">•</span>
+                  <span className="mr-2 text-primary">•</span>
                   {skill.name} {skill.emoji && <span>{skill.emoji}</span>}
                 </motion.li>
               ))}

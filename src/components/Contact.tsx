@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 
@@ -8,11 +7,11 @@ function Contact() {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-   
+      className="px-4 sm:px-6 md:px-8 lg:px-16" // Responsive padding
     >
       <SectionHeader title="Get In Touch" />
 
-      <div className="flex flex-col space-y-4 text-lg mb-12">
+      <div className="flex flex-col space-y-4 text-sm md:text-lg mb-12">
         <div>
           <span className="font-semibold">Email:</span>{' '}
           <a
