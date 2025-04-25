@@ -49,9 +49,18 @@ const Hero = () => {
         >
           My Resume
         </button>
-        <button className="border border-primary px-6 py-2 rounded-sm font-medium hover:bg-primary hover:text-white transition-all">
-          Let's Talk
-        </button>
+        <button
+  onClick={() => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+  className="border border-primary px-6 py-2 rounded-sm font-medium hover:bg-primary hover:text-white transition-all"
+>
+  Let's Talk
+</button>
+
       </motion.div>
     </div>
   );
