@@ -25,6 +25,7 @@ module.exports = {
         accent: {
           grey: "#d3d3d3",
           DEFAULT: "#20c997",
+          dark: "#748EA8",
         },
       },
     },
