@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <div className="flex justify-between items-center w-full pt-6 px-4">
       {/* Logo */}
-      <div className="text-xl font-semibold">HO</div>
+      <div className="text-xl font-semibold">Harmony Orakpoyovwuru</div>
 
       {/* Desktop Navigation Links */}
       <ul className="hidden lg:flex space-x-6">
