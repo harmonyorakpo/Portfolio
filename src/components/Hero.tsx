@@ -133,7 +133,7 @@ const Hero = () => {
               <span className="flex items-center gap-2">
                 <span>My Resume</span>
                 <span className="group-hover:translate-x-1 transition-transform">
-                  →
+                ↓
                 </span>
               </span>
             </button>

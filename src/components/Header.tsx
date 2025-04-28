@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const links = [
     { name: "About", href: "#about" },
@@ -19,14 +19,17 @@ const Header = () => {
       setScrolled(scrollPosition > 50);
 
       // Update active section based on scroll position
-      const sections = ["home", "about", "projects", "skills", "contact"];
-      for (const section of sections.reverse()) {
+      const sections = ["about", "projects", "skills", "contact"];
+      let active = null;
+      
+      for (const section of sections) {
         const element = document.getElementById(section);
         if (element && scrollPosition >= element.offsetTop - 100) {
-          setActiveSection(section);
-          break;
+          active = section;
         }
       }
+
+      setActiveSection(active);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -288,7 +291,7 @@ const Header = () => {
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+                <path d="M459.4 151.7c.32 4.7.32 9.5.32 14.3 0 146.8-111.7 316-316 316-62.6 0-120.4-18.4-169.2-49.5 8.7 1 17.5 1.3 26.4 1.3 51.7 0 99.4-17.6 137.5-47.4-48.2-.9-88.9-32.7-102.2-76.6 6.6 1.2 13.4 1.9 20.3 1.9 9.8 0 19.4-1.3 28.4-3.7-50.5-10.1-88.8-54.6-88.8-107.9 0-.5 0-.9 0-1.4 14.9 8.3 31.9 13.4 50.3 14-30.7-20.6-50.9-55.5-50.9-95.4 0-21.1 5.7-40.9 15.6-58.1 56.9 69.9 142.1 116.7 238.3 121.5-1.9-8.4-3.6-17-3.6-25.8 0-62.8 50.9-113.7 113.7-113.7 32.8 0 62.4 13.6 83.2 35.5 26-5.1 50.4-14.8 72.1-28-8.5 26.3-26.4 48.2-49.8 62.2 22.9-2.7 45.3-8.8 66.1-17.6-14.3 21.4-32.4 40.3-53.2 55.1z"></path>
               </svg>
             </a>
           </div>
