@@ -27,7 +27,7 @@ const ProjectDetails = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="px-4 md:px-8 lg:px-20 py-8 max-w-5xl mx-auto"
     >
-      <BackButton className="mb-6" />
+      <BackButton className="mb-6 mt-20" />
       <h1 className="text-2xl md:text-3xl font-bold mb-12 text-center">
         {project.title}
       </h1>
