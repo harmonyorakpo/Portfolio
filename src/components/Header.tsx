@@ -154,7 +154,7 @@ const Header = () => {
           ))}
           <motion.li variants={itemVariants}>
             <a
-              href="mailto:harmony@example.com"
+              href="mailto:harmonyorakpo@gmail.com"
               className="ml-4 bg-primary text-white px-5 py-2 rounded-md hover:scale-105 transition-all shadow-md shadow-primary/20"
             >
               Hire Me
@@ -235,7 +235,7 @@ const Header = () => {
               </motion.a>
             ))}
             <motion.a
-              href="mailto:harmony@example.com"
+              href="mailto:harmonyorakpo@gmail.com"
               className="mt-4 bg-primary text-white px-6 py-3 rounded-md text-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
