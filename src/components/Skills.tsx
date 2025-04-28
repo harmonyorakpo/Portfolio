@@ -21,7 +21,7 @@ const skillsData: ISkillCategory[] = [
     skills: [
       { name: "HTML" },
       { name: "CSS" },
-      { name: "SASS/SCSS" },
+      { name: "SCSS" },
       { name: "ES6+ Javascript" },
       { name: "Typescript" },
       { name: "MSSQL" },

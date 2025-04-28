@@ -14,6 +14,7 @@ export interface NewsItem {
     responsibilities?: string[]; 
     technicalStack?: string[];
     image?: string;
+    url?:string;
   }
 
  export interface ISkill {

@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import BackButton from "../components/BackButton";
 import { motion } from "framer-motion";
+import ViewProject from "../components/ViewProject";
 
 const ProjectDetails = () => {
   const location = useLocation();
@@ -27,11 +28,9 @@ const ProjectDetails = () => {
       className="px-4 md:px-8 lg:px-20 py-8 max-w-5xl mx-auto"
     >
       <BackButton className="mb-6" />
-
       <h1 className="text-2xl md:text-3xl font-bold mb-12 text-center">
         {project.title}
       </h1>
-
       <motion.span
         className="flex items-center justify-center mb-10"
         initial={{ opacity: 0, scale: 0.95 }}
@@ -46,11 +45,9 @@ const ProjectDetails = () => {
           />
         )}
       </motion.span>
-
       <Section title="ABOUT THIS PROJECT">
         <span className="text-sm sm:text-base">{project.about}</span>
       </Section>
-
       <Section title="ROLES IN PROJECT">
         <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
           {project.roles.map((role: string, index: number) => (
@@ -58,7 +55,6 @@ const ProjectDetails = () => {
           ))}
         </ul>
       </Section>
-
       <Section title="MY RESPONSIBILITIES AND FEATURES IMPLEMENTED">
         <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
           {project.responsibilities.map(
@@ -68,7 +64,6 @@ const ProjectDetails = () => {
           )}
         </ul>
       </Section>
-
       <Section title="TECHNICAL SHEET">
         <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
           {project.technicalStack.map((techStack: string, index: number) => (
@@ -76,6 +71,7 @@ const ProjectDetails = () => {
           ))}
         </ul>
       </Section>
+      {project.url && <ViewProject url={project.url} />}
     </motion.div>
   );
 };

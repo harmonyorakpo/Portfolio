@@ -30,8 +30,67 @@ const Projects = () => {
       image: "/images/portfolio.png",
     },
     {
-      title: "Store Paddy",
+      title: "Touchstone Learning Portal",
       id: "02",
+      description: "Angular 18 | PrimeNG | NGXS | RxJs | TypeScript",
+      link: "View Project",
+      about:
+        "The Touchstone Learning Portal is a competency-based, multimodal educational platform designed to support International Medical Graduates (IMGs) and visa-trainee physicians as they transition into residency training programs in Ontario. The portal emphasizes structured learning, clinical simulations, mentorship, and real-time learner support aligned with CanMEDS frameworks.",
+      roles: ["Frontend Developer"],
+      responsibilities: [
+        "Developed the frontend using Angular 18 with NGXS for centralized state management across modules.",
+        "Built interactive dashboards for Pre-Residency, Family Medicine, and Canadian Medicine Primer programs using PrimeNG components.",
+        "Implemented dynamic learning modules, simulation scheduling tools, and mentorship consultation interfaces.",
+        "Optimized application performance through lazy loading, virtual scrolling, and modular architecture.",
+        "Integrated RESTful and GraphQL APIs for authentication, learner data, course progress, and feedback submissions.",
+        "Collaborated with backend engineers, curriculum designers, and SMEs in Agile sprints to deliver learner-centric features.",
+      ],
+      technicalStack: [
+        "Angular 18",
+        "PrimeNG",
+        "NGXS",
+        "RxJs",
+        "TypeScript",
+        "HTML",
+        "SCSS",
+      ],
+      image: "",
+      url: "https://touchstoneinstitute.ca/learning/",
+    },
+    {
+      title: "Touchstone Exam Portal",
+      id: "03",
+      description: "Angular 19 | PrimeFaces | RxJs | NgXS | Signals",
+      link: "View Project",
+      about:
+        "The Touchstone Exam Portal is an advanced platform designed to support international medical professionals preparing for certification exams such as IENCAP, IGOEE, and other assessments required for practicing in Canada. The platform emphasizes structured learning and real-time feedback for exam readiness.",
+      roles: ["Frontend Developer"],
+      responsibilities: [
+        "Developed the frontend of the exam portal using Angular 19 with state management handled via NgXS and Angular Signals.",
+        "Designed interactive components with PrimeFaces to support exam simulations, practice tests, and structured assessments.",
+        "Integrated RxJs for managing reactive data flows across modules.",
+        "Built dynamic dashboards and performance tracking tools to provide real-time feedback and analytics to users.",
+        "Collaborated with educators and stakeholders to translate curriculum requirements into functional UI components.",
+        "Ensured mobile responsiveness and accessibility for users across multiple devices.",
+        "Optimized the platform's performance to handle high user concurrency during exam simulations and timed assessments.",
+      ],
+      technicalStack: [
+        "Angular 19",
+        "PrimeFaces",
+        "RxJs",
+        "NgXS",
+        "Angular Signals",
+        "Typescript",
+        "HTML",
+        "CSS",
+        "SCSS",
+      ],
+      image: "",
+      url: "https://portal.tsin.ca",
+    },
+    {
+      title: "Store Paddy",
+      id: "04",
       description: "React | Typescript | Tailwind | Redux",
       link: "View Project",
       about:
@@ -59,7 +118,7 @@ const Projects = () => {
     },
     {
       title: "New Internet Banking",
-      id: "03",
+      id: "05",
       description: "Angular 19 | Bootstrap | RxJs | Chart.js | Npmjs",
       link: "View Project",
       about:
@@ -90,7 +149,7 @@ const Projects = () => {
     },
     {
       title: "Account Opening Web Engine",
-      id: "04",
+      id: "06",
       description: "Angular 14 | Tailwind | RxJs | Npmjs",
       link: "View Project",
       about:
@@ -120,7 +179,7 @@ const Projects = () => {
     },
     {
       title: "API Management Portal",
-      id: "05",
+      id: "07",
       description: "Angular 14 | Tailwind | RxJs | Npmjs",
       link: "View Project",
       about:
@@ -151,7 +210,7 @@ const Projects = () => {
     },
     {
       title: "Nurse Ready Admin Portal",
-      id: "06",
+      id: "08",
       description: "Angular 14 | PrimeFaces | RxJs",
       link: "View Project",
       about:
@@ -177,38 +236,8 @@ const Projects = () => {
       ],
       image: "",
     },
-    {
-      title: "Touchstone Exam Portal",
-      id: "07",
-      description: "Angular 19 | PrimeFaces | RxJs | NgXS | Signals",
-      link: "View Project",
-      about:
-        "The Touchstone Exam Portal is an advanced platform designed to support international medical professionals preparing for certification exams such as IENCAP, IGOEE, and other assessments required for practicing in Canada. The platform emphasizes structured learning and real-time feedback for exam readiness.",
-      roles: ["Frontend Developer"],
-      responsibilities: [
-        "Developed the frontend of the exam portal using Angular 19 with state management handled via NgXS and Angular Signals.",
-        "Designed interactive components with PrimeFaces to support exam simulations, practice tests, and structured assessments.",
-        "Integrated RxJs for managing reactive data flows across modules.",
-        "Built dynamic dashboards and performance tracking tools to provide real-time feedback and analytics to users.",
-        "Collaborated with educators and stakeholders to translate curriculum requirements into functional UI components.",
-        "Ensured mobile responsiveness and accessibility for users across multiple devices.",
-        "Optimized the platform's performance to handle high user concurrency during exam simulations and timed assessments.",
-      ],
-      technicalStack: [
-        "Angular 19",
-        "PrimeFaces",
-        "RxJs",
-        "NgXS",
-        "Angular Signals",
-        "Typescript",
-        "HTML",
-        "CSS",
-        "SCSS",
-      ],
-      image: "",
-    },
+  
   ];
-
 
   const container = {
     hidden: {},
@@ -244,7 +273,11 @@ const Projects = () => {
         <hr className="border-gray-900" />
 
         {projects.map((project, index) => (
-          <motion.div key={index} variants={item} className="flex flex-col w-full">
+          <motion.div
+            key={index}
+            variants={item}
+            className="flex flex-col w-full"
+          >
             <Link
               to={`/projects/${project.id}`}
               state={{ project }}
@@ -260,7 +293,9 @@ const Projects = () => {
                     <span className="font-bold text-lg sm:text-xl text-white mb-1">
                       {project.title}
                     </span>
-                    <span className="text-sm text-gray-300">{project.description}</span>
+                    <span className="text-sm text-gray-300">
+                      {project.description}
+                    </span>
                   </div>
                 </div>
 
