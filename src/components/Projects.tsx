@@ -26,6 +26,7 @@ const Projects = () => {
         "JavaScript",
         "HTML",
         "CSS",
+        "Framer Motion"
       ],
       image: "/images/portfolio.png",
     },
