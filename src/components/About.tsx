@@ -18,7 +18,7 @@ function About() {
         transition={{ delay: 0.3, duration: 0.8 }}
         className="leading-relaxed text-base sm:text-lg"
       >
-        I'm Harmony, a Frontend Developer with 3+ years of experience building
+        I'm Harmony, a Frontend Developer with 4 years of experience building
         scalable, user-focused web applications. Before diving into
         development, I spent a year as a UI/UX designer — a foundation that
         still shapes how I approach every interface I build. I'm proficient in
