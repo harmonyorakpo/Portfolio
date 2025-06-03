@@ -24,7 +24,7 @@ function Contact() {
 
         <div>
           <span className="font-semibold">Phone:</span>{' '}
-          <span>+234 706 291 2340</span>
+          <span>+49 1551 087 5320</span>
         </div>
       </div>
     </motion.div>

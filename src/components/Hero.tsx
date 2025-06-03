@@ -8,12 +8,12 @@ const Hero = () => {
     setIsLoaded(true);
   }, []);
 
-  const handleDownload = () => {
-    const link = document.createElement("a");
-    link.href = `/cv/Harmony_Orakpoyovwuru_cv.pdf`;
-    link.download = "Harmony Orakpoyovwuru CV.pdf";
-    link.click();
-  };
+  // const handleDownload = () => {
+  //   const link = document.createElement("a");
+  //   link.href = `/cv/Harmony_Orakpoyovwuru_cv.pdf`;
+  //   link.download = "Harmony Orakpoyovwuru CV.pdf";
+  //   link.click();
+  // };
 
   // Animation variants
   const containerVariants = {
@@ -126,7 +126,7 @@ const Hero = () => {
             variants={itemVariants}
             className="py-4 flex flex-wrap gap-4"
           >
-            <button
+            {/* <button
               onClick={handleDownload}
               className="bg-primary text-white px-8 py-3 rounded-md font-medium hover:scale-105 transition-all shadow-lg shadow-primary/20 group"
             >
@@ -136,7 +136,7 @@ const Hero = () => {
                 ↓
                 </span>
               </span>
-            </button>
+            </button> */}
             <button
               onClick={() => {
                 const contactSection = document.getElementById("contact");
@@ -144,12 +144,12 @@ const Hero = () => {
                   contactSection.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="border-2 border-primary px-8 py-3 rounded-md font-medium hover:bg-primary hover:text-white transition-all group"
+                         className="bg-primary text-white px-8 py-3 rounded-md font-medium hover:scale-105 transition-all shadow-lg shadow-primary/20 group"
             >
               <span className="flex items-center gap-2">
                 <span>Let's Talk</span>
                 <span className="group-hover:translate-x-1 transition-transform">
-                  ↘
+                  ↓
                 </span>
               </span>
             </button>

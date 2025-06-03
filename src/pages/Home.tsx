@@ -11,19 +11,19 @@ const Home = () => {
       <div id="hero">
         <Hero />
       </div>
-      
+
       <div id="about">
         <About />
       </div>
-      
+
       <div id="projects">
         <Projects />
       </div>
-      
+
       <div id="skills">
         <Skills />
       </div>
-      
+
       <div id="contact">
         <Contact />
       </div>

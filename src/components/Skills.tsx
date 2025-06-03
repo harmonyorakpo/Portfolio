@@ -31,6 +31,7 @@ const skillsData: ISkillCategory[] = [
     title: "Frameworks",
     skills: [
       { name: "React.js" },
+      { name: "Node.js" },
       { name: "Angular" },
       { name: "PrimeFaces" },
     ],
