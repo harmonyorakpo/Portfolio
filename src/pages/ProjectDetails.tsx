@@ -41,6 +41,8 @@ const ProjectDetails = () => {
           <img
             src={project.image}
             alt={project.title}
+            loading="lazy"
+            decoding="async"
             className="w-full max-w-3xl rounded-lg"
           />
         )}
@@ -50,14 +52,14 @@ const ProjectDetails = () => {
       </Section>
       <Section title="ROLES IN PROJECT">
         <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
-          {project.roles.map((role: string, index: number) => (
+          {project.roles?.map((role: string, index: number) => (
             <li key={index}>{role}</li>
           ))}
         </ul>
       </Section>
       <Section title="MY RESPONSIBILITIES AND FEATURES IMPLEMENTED">
         <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
-          {project.responsibilities.map(
+          {project.responsibilities?.map(
             (responsibility: string, index: number) => (
               <li key={index}>{responsibility}</li>
             )
@@ -66,7 +68,7 @@ const ProjectDetails = () => {
       </Section>
       <Section title="TECHNICAL SHEET">
         <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
-          {project.technicalStack.map((techStack: string, index: number) => (
+          {project.technicalStack?.map((techStack: string, index: number) => (
             <li key={index}>{techStack}</li>
           ))}
         </ul>

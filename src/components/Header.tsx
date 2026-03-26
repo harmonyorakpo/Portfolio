@@ -1,94 +1,80 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback, memo } from "react";
+import { motion, Variants } from "framer-motion";
 
-const Header = () => {
+const links = [
+  { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
+  { name: "Contact", href: "#contact" },
+];
+
+const sections = ["about", "projects", "skills", "contact"];
+
+const logoVariants: Variants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+};
+
+const navVariants: Variants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2, duration: 0.5 },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+};
+
+const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
-  const links = [
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Contact", href: "#contact" },
-  ];
-
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setScrolled(scrollPosition > 50);
+      if (ticking) return;
+      ticking = true;
 
-      // Update active section based on scroll position
-      const sections = ["about", "projects", "skills", "contact"];
-      let active = null;
-      
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element && scrollPosition >= element.offsetTop - 100) {
-          active = section;
+      requestAnimationFrame(() => {
+        const scrollPosition = window.scrollY;
+        setScrolled(scrollPosition > 50);
+
+        let active: string | null = null;
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element && scrollPosition >= element.offsetTop - 100) {
+            active = section;
+          }
         }
-      }
-
-      setActiveSection(active);
+        setActiveSection(active);
+        ticking = false;
+      });
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll function
-  const handleSmoothScroll = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    href: string
-  ) => {
-    e.preventDefault();
-
-    const targetId = href.substring(1);
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop,
-        behavior: "smooth",
-      });
-    }
-
-    // Close mobile menu if open
-    if (isMenuOpen) {
+  const handleSmoothScroll = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault();
+      const targetElement = document.getElementById(href.substring(1));
+      if (targetElement) {
+        window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
+      }
       setIsMenuOpen(false);
-    }
-  };
-
-  const logoVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.5 },
     },
-  };
+    []
+  );
 
-  const navVariants = {
-    hidden: { opacity: 0, y: -10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-        duration: 0.5,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: -10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3 },
-    },
-  };
+  const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), []);
+  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
   return (
     <motion.header
@@ -128,11 +114,7 @@ const Header = () => {
           className="hidden lg:flex space-x-8 items-center"
         >
           {links.map((link) => (
-            <motion.li
-              key={link.name}
-              variants={itemVariants}
-              className="relative"
-            >
+            <motion.li key={link.name} variants={itemVariants} className="relative">
               <a
                 href={link.href}
                 className={`relative px-1 py-2 transition-colors ${
@@ -167,41 +149,38 @@ const Header = () => {
           <button
             aria-label="Toggle menu"
             className="w-10 h-10 flex flex-col justify-center items-center focus:outline-none"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={toggleMenu}
           >
             <span
               className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
                 isMenuOpen ? "rotate-45 translate-y-1" : "-translate-y-1"
               }`}
-            ></span>
+            />
             <span
               className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
                 isMenuOpen ? "opacity-0" : "opacity-100"
               }`}
-            ></span>
+            />
             <span
               className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
                 isMenuOpen ? "-rotate-45 -translate-y-1" : "translate-y-1"
               }`}
-            ></span>
+            />
           </button>
         </div>
 
         {/* Mobile Navigation Menu */}
         <motion.div
           initial={false}
-          animate={{
-            x: isMenuOpen ? "0%" : "100%",
-            opacity: isMenuOpen ? 1 : 0,
-          }}
+          animate={{ x: isMenuOpen ? "0%" : "100%", opacity: isMenuOpen ? 1 : 0 }}
           transition={{ type: "tween", duration: 0.3 }}
-          className={`lg:hidden fixed inset-0 bg-gray-900/95 backdrop-blur-lg z-50 flex flex-col justify-center items-center`}
+          className="lg:hidden fixed inset-0 bg-gray-900/95 backdrop-blur-lg z-50 flex flex-col justify-center items-center"
         >
           <div className="absolute top-6 right-6">
             <button
               aria-label="Close menu"
               className="w-10 h-10 flex justify-center items-center"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={closeMenu}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -244,12 +223,12 @@ const Header = () => {
               Hire Me
             </motion.a>
           </nav>
-
-          
         </motion.div>
       </div>
     </motion.header>
   );
-};
+});
+
+Header.displayName = "Header";
 
 export default Header;

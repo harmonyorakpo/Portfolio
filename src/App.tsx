@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -6,15 +7,30 @@ import {
 } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import Home from "./pages/Home";
-import ProjectDetails from "./pages/ProjectDetails";
-import NotFound from "./pages/NotFound";
+
+const ProjectDetails = lazy(() => import("./pages/ProjectDetails"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
       <Route index element={<Home />} />
-      <Route path="projects/:id" element={<ProjectDetails />} />
-      <Route path="*" element={<NotFound />} />
+      <Route
+        path="projects/:id"
+        element={
+          <Suspense fallback={null}>
+            <ProjectDetails />
+          </Suspense>
+        }
+      />
+      <Route
+        path="*"
+        element={
+          <Suspense fallback={null}>
+            <NotFound />
+          </Suspense>
+        }
+      />
     </Route>
   )
 );
