@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -16,7 +16,7 @@ const Hero = () => {
   // };
 
   // Animation variants
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -27,7 +27,7 @@ const Hero = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -39,7 +39,7 @@ const Hero = () => {
     },
   };
 
-  const imageVariants = {
+  const imageVariants: Variants = {
     hidden: { opacity: 0, scale: 0.9, x: 50 },
     visible: {
       opacity: 1,
@@ -53,15 +53,15 @@ const Hero = () => {
     },
   };
 
-  const shapeVariants = {
+  const shapeVariants: Variants = {
     hidden: { opacity: 0, scale: 0 },
-    visible: (custom : number) => ({
+    visible: (custom: number) => ({
       opacity: 0.7,
       scale: 1,
       transition: {
         delay: 0.5 + custom * 0.1,
         duration: 0.5,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     }),
   };
@@ -118,7 +118,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.p variants={itemVariants} className="text-lg opacity-80">
-            Crafting exceptional user experiences with Angular and React.
+            Crafting exceptional user experiences with Angular.
             Transforming ideas into interactive, performant web applications.
           </motion.p>
 
