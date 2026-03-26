@@ -15,6 +15,19 @@ module.exports = {
           "sans-serif",
         ],
       },
+
+      colors: {
+        primary: {
+          light: "#ff9c8c",
+          DEFAULT: "#ff715b",
+          dark: "#b34f40",
+        },
+        accent: {
+          grey: "#d3d3d3",
+          DEFAULT: "#20c997",
+          dark: "#748EA8",
+        },
+      },
     },
   },
   plugins: [],
