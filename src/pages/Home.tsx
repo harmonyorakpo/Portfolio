@@ -1,36 +1,43 @@
-import Hero from "../components/Hero";
-import About from "../components/About";
-import Projects from "../components/Projects";
-import Skills from "../components/Skills";
-import Contact from "../components/Contact";
-import ScrollUpButton from "../components/ScrollUpButton"; // Import the button
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
+import { useApp } from "../app/context";
+import { ScrollTrigger } from "../lib/gsap";
+import { useScrollFx } from "../hooks/useScrollFx";
+import Hero from "../components/sections/Hero";
+import Prologue from "../components/sections/Prologue";
+import FeaturedWork from "../components/sections/FeaturedWork";
+import Archive from "../components/sections/Archive";
+import Capabilities from "../components/sections/Capabilities";
+import Interlude from "../components/sections/Interlude";
+import UnderTheHood from "../components/sections/UnderTheHood";
+import Contact from "../components/sections/Contact";
 
-const Home = () => {
+export default function Home() {
+  const root = useRef<HTMLDivElement>(null);
+  const { ready, scrollTo } = useApp();
+  const { hash } = useLocation();
+
+  useScrollFx(root, "paper");
+
+  useEffect(() => {
+    if (!ready || !hash) return;
+    const id = requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+      scrollTo(hash, { immediate: true });
+    });
+    return () => cancelAnimationFrame(id);
+  }, [ready, hash, scrollTo]);
+
   return (
-    <>
-      <div id="hero">
-        <Hero />
-      </div>
-
-      <div id="about">
-        <About />
-      </div>
-
-      <div id="projects">
-        <Projects />
-      </div>
-
-      <div id="skills">
-        <Skills />
-      </div>
-
-      <div id="contact">
-        <Contact />
-      </div>
-
-      <ScrollUpButton />
-    </>
+    <div ref={root}>
+      <Hero />
+      <Prologue />
+      <FeaturedWork />
+      <Archive />
+      <Capabilities />
+      <Interlude />
+      <UnderTheHood />
+      <Contact />
+    </div>
   );
-};
-
-export default Home;
+}

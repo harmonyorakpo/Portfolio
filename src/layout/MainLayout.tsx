@@ -1,18 +1,47 @@
-import { Outlet, useLocation } from "react-router-dom";
-import Header from "../components/Header";
+import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
+import AppProviders from "../app/AppProviders";
+import { useApp } from "../app/context";
+import Preloader from "../components/chrome/Preloader";
+import CommandPalette from "../components/chrome/CommandPalette";
+import Cursor from "../components/chrome/Cursor";
+import Footer from "../components/chrome/Footer";
+import BackToTop from "../components/chrome/BackToTop";
 
-const MainLayout = () => {
-  const location = useLocation();
-  const hideHeader = location.pathname.includes("/projects/");
+function Shell() {
+  const { ready } = useApp();
+
+  useEffect(() => {
+    if (!ready) return;
+    const id = window.setTimeout(() => void import("../pages/ProjectDetails"), 1200);
+    return () => window.clearTimeout(id);
+  }, [ready]);
 
   return (
     <>
-      {!hideHeader && <Header />}
-      <div className="min-h-screen">
+      <a
+        href="#main"
+        className="fixed left-4 top-10 z-110 -translate-y-24 rounded-full bg-signal px-4 py-2 font-mono text-xs text-ink focus:translate-y-0"
+      >
+        Skip to content
+      </a>
+      <Preloader />
+      <main id="main" tabIndex={-1} className="outline-none">
         <Outlet />
-      </div>
+      </main>
+      <Footer />
+      <BackToTop />
+      <CommandPalette />
+      <Cursor />
+      <div className="grain" aria-hidden="true" />
     </>
   );
-};
+}
 
-export default MainLayout;
+export default function MainLayout() {
+  return (
+    <AppProviders>
+      <Shell />
+    </AppProviders>
+  );
+}
