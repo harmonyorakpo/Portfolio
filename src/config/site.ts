@@ -1,7 +1,8 @@
 export const site = {
   name: { first: "Harmony", last: "Orakpoyovwuru", initials: "HO" },
   role: "Frontend Engineer",
-  email: "harmonyorakpo@gmail.com",
+  // Email lives in lib/email.ts, assembled at runtime so it is never a scrapable
+  // plaintext string. Import { getEmail, mailtoHref } from "../lib/email".
   phone: "+49 1551 087 5320",
   location: "Germany",
   timeZone: "Europe/Berlin",

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { ArrowRight, ArrowUpRight, Copy, CornerDownLeft, Download, FolderOpen, Hash, Mail, Search } from "lucide-react";
 import { useApp } from "../../app/context";
 import { site } from "../../config/site";
+import { getEmail, mailtoHref } from "../../lib/email";
 import { projects } from "../../data/projects.data";
 import { parseTitle } from "../../lib/projects";
 import { cn } from "../../lib/cn";
@@ -62,12 +63,13 @@ export default function CommandPalette() {
         id: "copy-email",
         group: "Actions",
         label: "Copy email address",
-        hint: site.email,
+        hint: getEmail(),
         icon: <Copy className={icon} aria-hidden="true" />,
         run: () => {
-          navigator.clipboard?.writeText(site.email).then(
+          const email = getEmail();
+          navigator.clipboard?.writeText(email).then(
             () => notify("Email copied to clipboard"),
-            () => notify(site.email),
+            () => notify(email),
           );
         },
       },
@@ -76,7 +78,7 @@ export default function CommandPalette() {
         group: "Actions",
         label: "Send an email",
         icon: <Mail className={icon} aria-hidden="true" />,
-        run: () => void (window.location.href = `mailto:${site.email}`),
+        run: () => void (window.location.href = mailtoHref()),
       },
       {
         id: "cv",

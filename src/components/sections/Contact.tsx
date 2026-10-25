@@ -1,6 +1,7 @@
 import { Copy } from "lucide-react";
 import { useApp } from "../../app/context";
 import { site } from "../../config/site";
+import { getEmail, mailtoHref } from "../../lib/email";
 import Label from "../ui/Label";
 import Reveal from "../ui/Reveal";
 
@@ -9,9 +10,10 @@ export default function Contact() {
   const socials = site.socials.filter((s) => s.href);
 
   const copy = () => {
-    navigator.clipboard?.writeText(site.email).then(
+    const email = getEmail();
+    navigator.clipboard?.writeText(email).then(
       () => notify("Email copied to clipboard"),
-      () => notify(site.email),
+      () => notify(email),
     );
   };
 
@@ -29,10 +31,10 @@ export default function Contact() {
 
       <div className="mt-16 flex flex-wrap items-center gap-x-6 gap-y-3 md:mt-24">
         <a
-          href={`mailto:${site.email}`}
+          href={mailtoHref()}
           className="text-[clamp(1.4rem,3.2vw,3rem)] font-medium leading-none tracking-[-0.035em] underline decoration-fg/25 decoration-1 underline-offset-[0.2em] transition-colors hover:decoration-signal"
         >
-          {site.email}
+          {getEmail()}
         </a>
         <button
           type="button"

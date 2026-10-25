@@ -1,6 +1,6 @@
 import { IProject } from "../model/project.model";
 
-export const projects: IProject[] = [
+const projectList: IProject[] = [
   {
     title: "My Portfolio",
     id: "01",
@@ -30,7 +30,7 @@ export const projects: IProject[] = [
     image: "/images/portfolio.png",
   },
   {
-    title: "Touchstone Learning Portal | Freelance",
+    title: "Touchstone Learning Portal | Contract",
     id: "02",
     featured: true,
     description: "Angular 18 | PrimeNG | NGXS | RxJs | TypeScript",
@@ -59,7 +59,7 @@ export const projects: IProject[] = [
     url: "https://touchstoneinstitute.ca/learning/",
   },
   {
-    title: "Touchstone Exam Portal | Freelance",
+    title: "Touchstone Exam Portal | Contract",
     id: "03",
     description: "Angular 19 | PrimeFaces | RxJs | NgXS | Signals",
     link: "View Project",
@@ -88,42 +88,6 @@ export const projects: IProject[] = [
     ],
     image: "",
     url: "https://portal.tsin.ca",
-  },
-  {
-    title: "SAP AI Workflow Platform | Contract",
-    id: "04",
-    description: "React | Redux Toolkit | Angular | Vitest | Playwright",
-    link: "View Project",
-    about:
-      "A remote frontend engineering contract with SAP, Germany (Oct 2025 – present). I lead frontend development of an AI-powered React workflow platform that lets support teams design and execute customizable workflows across Service, Data, and LLM contexts — integrating RAG and Generative AI for intelligent, context-aware incident resolution — alongside data-intensive Angular dashboards for business reporting.",
-    roles: ["Frontend Engineer (Remote, Contract)"],
-    responsibilities: [
-      "Developed data-intensive Angular dashboards for business reporting, improving decision-making efficiency by 40%; built and optimized interactive visual components for large datasets across enterprise applications.",
-      "Led frontend development of an AI-powered React workflow platform, enabling support teams to design and execute customizable workflows across Service, Data, and LLM contexts by integrating RAG and Generative AI to deliver intelligent, context-aware incident resolution workflows.",
-      "Architected scalable state management using Redux Toolkit with async thunks and implemented optimized workflow change detection mechanisms to efficiently track unsaved structural and property updates across complex workflow configurations.",
-      "Optimized platform performance through React.memo, virtualized list rendering, custom hooks, and reusable component architecture, ensuring responsive user experiences for large workflow datasets.",
-      "Established quality standards with Vitest unit/integration testing and Playwright end-to-end test automation, improving application reliability and reducing production defects.",
-      "Designed CI/CD pipelines with Docker, Kubernetes, and ArgoCD (80% deployment efficiency gain); achieved 97% automated test coverage, significantly reducing production defects.",
-      "Led migration of Mend security scans from Jenkins to GitHub Actions and leveraged AI coding agents (GitHub Copilot, Claude) to accelerate development velocity and improve code quality.",
-    ],
-    technicalStack: [
-      "Angular",
-      "React",
-      "Redux Toolkit",
-      "TypeScript",
-      "RAG & Generative AI",
-      "Vitest",
-      "Playwright",
-      "Docker",
-      "Kubernetes",
-      "ArgoCD",
-      "GitHub Actions",
-      "Mend",
-      "GitHub Copilot",
-      "Claude",
-      "Figma",
-    ],
-    image: "",
   },
   {
     title: "New Internet Banking",
@@ -253,3 +217,11 @@ export const projects: IProject[] = [
     image: "",
   },
 ];
+
+const hasImage = (p: IProject) => Boolean(p.image?.trim());
+
+// Projects with a cover image lead; those without sink to the bottom of every
+// list. The sort is stable, so each group keeps its authored order above.
+export const projects: IProject[] = [...projectList].sort(
+  (a, b) => Number(hasImage(b)) - Number(hasImage(a)),
+);
