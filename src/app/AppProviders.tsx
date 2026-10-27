@@ -4,7 +4,6 @@ import Lenis from "lenis";
 import { AppContext, type AppContextValue } from "./context";
 import { cn } from "../lib/cn";
 import { gsap, ScrollTrigger, prefersReducedMotion } from "../lib/gsap";
-import { startTelemetry } from "../lib/telemetry";
 
 export default function AppProviders({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
@@ -20,7 +19,6 @@ export default function AppProviders({ children }: { children: ReactNode }) {
   const busy = useRef(false);
 
   useEffect(() => {
-    startTelemetry();
     if (prefersReducedMotion()) return;
 
     const instance = new Lenis({ autoRaf: false, duration: 1.15, smoothWheel: true });

@@ -9,7 +9,6 @@ import FeaturedWork from "../components/sections/FeaturedWork";
 import Archive from "../components/sections/Archive";
 import Capabilities from "../components/sections/Capabilities";
 import Interlude from "../components/sections/Interlude";
-import UnderTheHood from "../components/sections/UnderTheHood";
 import Contact from "../components/sections/Contact";
 
 export default function Home() {
@@ -36,7 +35,6 @@ export default function Home() {
       <Archive />
       <Capabilities />
       <Interlude />
-      <UnderTheHood />
       <Contact />
     </div>
   );

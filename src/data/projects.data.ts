@@ -15,7 +15,7 @@ const projectList: IProject[] = [
       "Implemented a global theme morph that tweens CSS variables between paper, ink and signal palettes as sections enter view.",
       "Built a ⌘K command palette, page-transition curtain and pointer-reactive variable-font hero for keyboard and mouse users alike.",
       "Respected prefers-reduced-motion throughout, with semantic landmarks, skip links and visible focus states.",
-      "Kept performance tight with route-level code splitting, manual vendor chunks and a live FPS / LCP / CLS telemetry readout.",
+      "Kept performance tight with route-level code splitting and manual vendor chunks.",
     ],
     technicalStack: [
       "React 19",

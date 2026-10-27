@@ -19,7 +19,7 @@ export default function Contact() {
 
   return (
     <section id="contact" data-theme="ink" aria-labelledby="contact-title" className="px-5 pb-20 pt-32 md:px-12 md:pb-28 md:pt-44">
-      <Label n="06" className="mb-8">
+      <Label n="05" className="mb-8">
         Contact
       </Label>
 

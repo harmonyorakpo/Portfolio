@@ -23,7 +23,6 @@ const sections = [
   ["work", "Selected work"],
   ["archive", "Project archive"],
   ["capabilities", "Capabilities"],
-  ["lab", "Under the hood — live metrics"],
   ["contact", "Contact"],
 ] as const;
 
