@@ -36,9 +36,13 @@ export default function Archive() {
         const enter = (e: PointerEvent) => {
           lastX = e.clientX;
           gsap.set(el, { x: e.clientX, y: e.clientY });
-          gsap.to(el, { scale: 1, opacity: 1, duration: 0.6, ease: "expo.out" });
+          gsap.to(el, { scale: 1, opacity: 1, duration: 0.6, ease: "expo.out", overwrite: "auto" });
         };
-        const leave = () => gsap.to(el, { scale: 0, opacity: 0, rotation: 0, duration: 0.5, ease: "expo.out" });
+        // overwrite: a quick in-and-out would otherwise let the longer enter tween finish last and strand the card on screen.
+        const leave = () => {
+          rTo(0);
+          gsap.to(el, { scale: 0, opacity: 0, duration: 0.5, ease: "expo.out", overwrite: "auto" });
+        };
         host.addEventListener("pointermove", move);
         host.addEventListener("pointerenter", enter);
         host.addEventListener("pointerleave", leave);
@@ -85,7 +89,7 @@ export default function Archive() {
         <span className="col-span-2 text-right">Role</span>
       </div>
 
-      <ol ref={list} className="group/list relative" onPointerLeave={() => setHovered(null)}>
+      <ol ref={list} className="group/list relative">
         {projects.map((p) => {
           const { name, tag } = parseTitle(p.title);
           return (
@@ -127,7 +131,8 @@ export default function Archive() {
         <div
           ref={preview}
           aria-hidden="true"
-          className="pointer-events-none fixed left-0 top-0 z-50 w-[min(340px,28vw)] overflow-hidden rounded-xl bg-bg opacity-0 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.5)] ring-1 ring-fg/10"
+          // The last hovered image stays mounted so the card scales out whole; with nothing in it the empty card's ring draws as a stray line.
+          className={`pointer-events-none fixed left-0 top-0 z-50 w-[min(340px,28vw)] overflow-hidden rounded-xl bg-bg opacity-0 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.5)] ring-1 ring-fg/10 ${hovered ? "" : "invisible"}`}
         >
           {projects.map((p) => (
             <div key={p.id} className={hovered === p.id ? "block" : "hidden"}>
