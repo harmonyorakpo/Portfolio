@@ -31,7 +31,7 @@ export const site = {
 
   // Drop files into /public/images and point these at them. Empty = labelled placeholder.
   images: {
-    portrait: "/images/Harmony.jpg",
+    portrait: "/images/Harmonyo.png",
     interlude: "/images/interlude-sliver.jpg",
   },
 } as const;
