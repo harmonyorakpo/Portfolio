@@ -128,7 +128,7 @@ export default function Hero() {
             type="button"
             data-hero-fade
             onClick={() => scrollTo("#contact")}
-            className="group mt-10 inline-flex items-center gap-4 rounded-sm bg-fg py-2.5 pl-5 pr-2.5 text-xs uppercase tracking-[0.16em] text-bg transition-colors duration-300 hover:bg-signal hover:text-ink md:mt-12"
+            className="group mt-10 inline-flex items-center gap-4 rounded-sm bg-cta py-2.5 pl-5 pr-2.5 text-xs uppercase font-semibold tracking-[0.16em] text-paper transition-colors duration-300 hover:bg-cta-deep md:mt-12"
           >
             Get in touch
             <span className="grid size-7 place-items-center border border-current/30">
