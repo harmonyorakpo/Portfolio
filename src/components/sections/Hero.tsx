@@ -137,7 +137,7 @@ export default function Hero() {
           </button>
         </div>
 
-        <figure data-hero-portrait className="w-[48vw] max-w-[240px] shrink-0 self-end sm:w-[clamp(160px,19vw,360px)] sm:max-w-none sm:self-auto">
+        <figure data-hero-portrait className="w-full shrink-0 sm:w-[clamp(160px,19vw,360px)]">
           <div data-hero-clip className="aspect-3/4 overflow-hidden bg-fg/5">
             <Media
               src={site.images.portrait}
