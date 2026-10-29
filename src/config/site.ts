@@ -7,7 +7,6 @@ export const site = {
   location: "Germany",
   timeZone: "Europe/Berlin",
   availability: "Available for new projects",
-  cv: { href: "/cv/Harmony_Orakpoyovwuru_cv.pdf", filename: "Harmony Orakpoyovwuru CV.pdf" },
 
   // Leave a URL empty to hide that link everywhere.
   socials: [

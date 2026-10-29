@@ -53,11 +53,6 @@ export default function Contact() {
             {site.phone}
           </a>
         </li>
-        <li>
-          <a href={site.cv.href} download={site.cv.filename} className="transition-colors hover:text-fg">
-            Download CV
-          </a>
-        </li>
         {socials.map((s) => (
           <li key={s.label}>
             <a href={s.href} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-fg">

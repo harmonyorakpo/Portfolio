@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { ArrowRight, ArrowUpRight, Copy, CornerDownLeft, Download, FolderOpen, Hash, Mail, Search } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Copy, CornerDownLeft, FolderOpen, Hash, Mail, Search } from "lucide-react";
 import { useApp } from "../../app/context";
 import { site } from "../../config/site";
 import { getEmail, mailtoHref } from "../../lib/email";
@@ -78,20 +78,6 @@ export default function CommandPalette() {
         label: "Send an email",
         icon: <Mail className={icon} aria-hidden="true" />,
         run: () => void (window.location.href = mailtoHref()),
-      },
-      {
-        id: "cv",
-        group: "Actions",
-        label: "Download CV",
-        hint: "PDF",
-        keywords: "resume résumé",
-        icon: <Download className={icon} aria-hidden="true" />,
-        run: () => {
-          const a = document.createElement("a");
-          a.href = site.cv.href;
-          a.download = site.cv.filename;
-          a.click();
-        },
       },
     ];
     const elsewhere: Item[] = site.socials

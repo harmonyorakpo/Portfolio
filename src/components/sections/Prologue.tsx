@@ -17,15 +17,6 @@ export default function Prologue() {
           <ScrubWords className="text-[clamp(1.6rem,3.1vw,3.25rem)] font-medium leading-[1.12] tracking-[-0.03em]">
             {site.prologue.detail}
           </ScrubWords>
-
-          <a
-            href={site.cv.href}
-            download={site.cv.filename}
-            className="mt-14 inline-flex items-center gap-3 text-sm uppercase transition-colors hover:text-signal"
-          >
-            <span aria-hidden="true" className="h-px w-5 bg-current" />
-            Download CV
-          </a>
         </div>
       </div>
     </section>
